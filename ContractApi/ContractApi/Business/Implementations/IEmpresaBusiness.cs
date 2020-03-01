@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContractApi.Business.Implementations
 {
-    interface IEmpresaBusiness
+     public interface IEmpresaBusiness
     {
         Empresas Create(Empresas empresas);
         Empresas FindById(long id);

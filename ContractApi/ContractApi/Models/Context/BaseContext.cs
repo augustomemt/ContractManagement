@@ -14,12 +14,12 @@ namespace ContractApi.Models.Context
         }
 
         public BaseContext(DbContextOptions<BaseContext> options) : base(options)
-            {
+        {
 
-            }
+        }
 
         public DbSet<Contratos> Contratos { get; set; }
-        public DbSet<Empresas> Empresa { get; set; }
+        public DbSet<Empresas> Empresas { get; set; }
 
     }
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ContractApi.Business.Implementations
 {
-    interface IContratoBusiness
+   public  interface IContratoBusiness
     {
         Contratos Create(Contratos contratos);
         Contratos FindById(long id);

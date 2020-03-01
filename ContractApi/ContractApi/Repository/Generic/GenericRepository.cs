@@ -30,16 +30,19 @@ namespace ContractApi.Repository.Generic
                 dataset.Add(item);
                 _context.SaveChanges();
             }
-            catch(Exception e)
+            catch(Exception ex)
             {
-                throw e;
+                throw ex;
             }
             return item;
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+           
+                T element = dataset.Find(id);
+                dataset.Remove(element);
+            
         }
 
         public bool Exists(long? id)
@@ -49,17 +52,22 @@ namespace ContractApi.Repository.Generic
 
         public List<T> FindAll()
         {
-            throw new NotImplementedException();
+            return dataset.ToList();
         }
 
         public T FindById(long id)
         {
-            throw new NotImplementedException();
+            return dataset.SingleOrDefault(p => p.Id.Equals(id));
         }
 
         public T Update(T item)
         {
-            throw new NotImplementedException();
+
+            T element = dataset.Find(item);
+
+            dataset.Update(element);
+
+            return item;
         }
     }
 }

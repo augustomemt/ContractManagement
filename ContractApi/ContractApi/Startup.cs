@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ContractApi.Business.Implementations;
 using ContractApi.Models.Context;
 using ContractApi.Repository.Generic;
 using Microsoft.AspNetCore.Builder;
@@ -29,11 +30,13 @@ namespace ContractApi
             services.AddMvc();
 
             services.AddApiVersioning();
-            string connection = "Data Source=DEV-NET\\SQLEXPRESS;Initial Catalog=WebApiCliente;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+           // string connection = "Data Source=DEV-NET\\SQLEXPRESS;Initial Catalog=WebApiCliente;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
             services.AddDbContext<BaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Conexao")));
 
-
+            //Adiciona serviços
+            services.AddScoped<IEmpresaBusiness, EmpresaBusiness>();
+            services.AddScoped<IContratoBusiness, ContratoBusiness>();
             services.AddScoped(typeof(IRepository<>), (typeof(GenericRepository<>)));
         }
 

@@ -8,22 +8,45 @@ namespace ContractApi.Business.Implementations
 {
     public class ContratoBusiness : IContratoBusiness
     {
-
+        //Injeção de dependencia
         private IRepository<Contratos> _repository;
-
-
         public ContratoBusiness(IRepository<Contratos> repository)
         {
             _repository = repository;
         }
+
+
         public Contratos Create(Contratos contratos)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _repository.Create(contratos);
+
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return contratos;
+           
         }
 
         public void Delete(long id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _repository.Delete(id);
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+         
         }
 
         public bool Exists(long? id)
@@ -33,17 +56,37 @@ namespace ContractApi.Business.Implementations
 
         public List<Contratos> FindAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return  _repository.FindAll();
+            }
+            catch(Exception E)
+            {
+                throw E;
+            }
+              
+
         }
 
         public Contratos FindById(long id)
         {
-            throw new NotImplementedException();
+            return _repository.FindById(id);
         }
 
-        public Contratos Update(Contratos item)
+        public Contratos Update(Contratos contrato)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _repository.Create(contrato);
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return contrato;
         }
     }
 }
