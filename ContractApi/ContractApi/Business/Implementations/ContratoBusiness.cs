@@ -56,8 +56,7 @@ namespace ContractApi.Business.Implementations
         public List<ContratosVO> FindAll()
         {
            
-                return _converter.ParseList( _repository.FindAll());
-            
+                return _converter.ParseList( _repository.FindAll());           
            
               
 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ContractApi.Data.Converters;
+using ContractApi.Data.VO;
 using ContractApi.Models;
 using ContractApi.Repository.Generic;
 
@@ -11,24 +13,23 @@ namespace ContractApi.Business.Implementations
     {
 
         private IRepository<Empresas> _repository;
+
+        private readonly EmpresasConverter _converter;
+
+
         public EmpresaBusiness(IRepository<Empresas> repository)
         {
             _repository = repository;
+
+            _converter = new EmpresasConverter();
+
         }
 
-        public Empresas Create(Empresas empresas)
+        public EmpresasVO Create(EmpresasVO empresas)
         {
-            try
-            {
-                _repository.Create(empresas);
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return empresas;
+            var empresaEntity = _converter.Parse(empresas);
+            empresaEntity = _repository.Create(_converter.Parse(empresas));
+            return _converter.Parse(empresaEntity);
         }
 
         public void Delete(int id)
@@ -50,37 +51,22 @@ namespace ContractApi.Business.Implementations
             throw new NotImplementedException();
         }
 
-        public List<Empresas> FindAll()
+        public List<EmpresasVO> FindAll()
         {
-            try
-            {
-                return _repository.FindAll();
-            }
-            catch (Exception E)
-            {
-                throw E;
-            }
+            return _converter.ParseList(_repository.FindAll());
         }
 
-        public Empresas FindById(int id)
+        public EmpresasVO FindById(int id)
         {
-            return _repository.FindById(id);
+            return _converter.Parse(_repository.FindById(id));
         }
 
-        public Empresas Update(Empresas empresa)
+        public EmpresasVO Update(EmpresasVO empresa)
         {
-            try
-            {
-                _repository.Update(empresa);
+            var empresEntiry = _converter.Parse(empresa);
+            empresEntiry = _repository.Update(_converter.Parse(empresa));
 
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return empresa;
+            return _converter.Parse(empresEntiry);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace ContractApi.Controllers
 
         }
         // PUT api/<controller>/5
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult Put([FromBody]ContratosVO contrado)
         {
 

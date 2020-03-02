@@ -1,4 +1,5 @@
-﻿using ContractApi.Models;
+﻿using ContractApi.Data.VO;
+using ContractApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,10 @@ namespace ContractApi.Business.Implementations
 {
      public interface IEmpresaBusiness
     {
-        Empresas Create(Empresas empresas);
-        Empresas FindById(int id);
-        List<Empresas> FindAll();
-        Empresas Update(Empresas item);
+        EmpresasVO Create(EmpresasVO empresas);
+        EmpresasVO FindById(int id);
+        List<EmpresasVO> FindAll();
+        EmpresasVO Update(EmpresasVO item);
         void Delete(int id);
 
         bool Exists(int? id);

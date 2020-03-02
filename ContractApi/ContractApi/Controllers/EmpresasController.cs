@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ContractApi.Business.Implementations;
+using ContractApi.Data.VO;
 using ContractApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,7 +44,7 @@ namespace ContractApi.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public IActionResult Post([FromBody]Empresas empresas)
+        public IActionResult Post([FromBody]EmpresasVO empresas)
         {
             if (empresas == null) return BadRequest();
 
@@ -52,8 +53,8 @@ namespace ContractApi.Controllers
 
         }
         // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public IActionResult Put([FromBody]Empresas empresas)
+        [HttpPut]
+        public IActionResult Put([FromBody]EmpresasVO empresas)
         {
 
 

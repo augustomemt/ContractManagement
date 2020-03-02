@@ -63,10 +63,6 @@ namespace ContractApi.Repository.Generic
 
         public T Update(T item)
         {
-
-
-           
-            
             dataset.Update(item);
 
             _context.SaveChanges();
