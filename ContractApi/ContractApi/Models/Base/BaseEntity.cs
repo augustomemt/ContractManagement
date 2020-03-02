@@ -11,6 +11,6 @@ namespace ContractApi.Models.Base
     public class BaseEntity
     {
 
-        public  long? Id { get; set; }
+        public  int? Id { get; set; }
     }
 }

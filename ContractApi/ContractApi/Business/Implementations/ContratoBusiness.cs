@@ -1,4 +1,6 @@
-﻿using ContractApi.Repository.Generic;
+﻿using ContractApi.Data.Converters;
+using ContractApi.Data.VO;
+using ContractApi.Repository.Generic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,30 +12,27 @@ namespace ContractApi.Business.Implementations
     {
         //Injeção de dependencia
         private IRepository<Contratos> _repository;
+
+        private readonly ContratosConverter _converter;
         public ContratoBusiness(IRepository<Contratos> repository)
         {
+
             _repository = repository;
+            _converter = new ContratosConverter();
         }
 
 
-        public Contratos Create(Contratos contratos)
+        public ContratosVO Create(ContratosVO contratos)
         {
-            try
-            {
-                _repository.Create(contratos);
 
 
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
+            var contratoEntity = _converter.Parse(contratos);
+            contratoEntity = _repository.Create(_converter.Parse(contratos));
 
-            return contratos;
-           
+            return  _converter.Parse(contratoEntity);
         }
 
-        public void Delete(long id)
+        public void Delete(int id)
         {
             try
             {
@@ -49,44 +48,32 @@ namespace ContractApi.Business.Implementations
          
         }
 
-        public bool Exists(long? id)
+        public bool Exists(int? id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Contratos> FindAll()
+        public List<ContratosVO> FindAll()
         {
-            try
-            {
-                return  _repository.FindAll();
-            }
-            catch(Exception E)
-            {
-                throw E;
-            }
+           
+                return _converter.ParseList( _repository.FindAll());
+            
+           
               
 
         }
 
-        public Contratos FindById(long id)
+        public ContratosVO FindById(int id)
         {
-            return _repository.FindById(id);
+             return _converter.Parse(_repository.FindById(id));
         }
 
-        public Contratos Update(Contratos contrato)
+        public ContratosVO Update(ContratosVO contrato)
         {
-            try
-            {
-                _repository.Create(contrato);
+            var contratoEntity = _converter.Parse(contrato);
+            contratoEntity = _repository.Update(_converter.Parse(contrato));
 
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-            return contrato;
+            return _converter.Parse(contratoEntity);
         }
     }
 }

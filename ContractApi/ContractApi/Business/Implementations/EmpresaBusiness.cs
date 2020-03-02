@@ -31,7 +31,7 @@ namespace ContractApi.Business.Implementations
             return empresas;
         }
 
-        public void Delete(long id)
+        public void Delete(int id)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace ContractApi.Business.Implementations
             }
         }
 
-        public bool Exists(long? id)
+        public bool Exists(int? id)
         {
             throw new NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace ContractApi.Business.Implementations
             }
         }
 
-        public Empresas FindById(long id)
+        public Empresas FindById(int id)
         {
             return _repository.FindById(id);
         }

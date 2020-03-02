@@ -9,11 +9,11 @@ namespace ContractApi.Business.Implementations
      public interface IEmpresaBusiness
     {
         Empresas Create(Empresas empresas);
-        Empresas FindById(long id);
+        Empresas FindById(int id);
         List<Empresas> FindAll();
         Empresas Update(Empresas item);
-        void Delete(long id);
+        void Delete(int id);
 
-        bool Exists(long? id);
+        bool Exists(int? id);
     }
 }

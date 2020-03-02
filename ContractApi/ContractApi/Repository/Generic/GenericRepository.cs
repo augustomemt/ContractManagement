@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContractApi.Repository.Generic
 {
@@ -29,6 +28,7 @@ namespace ContractApi.Repository.Generic
             {
                 dataset.Add(item);
                 _context.SaveChanges();
+                
             }
             catch(Exception ex)
             {
@@ -37,15 +37,16 @@ namespace ContractApi.Repository.Generic
             return item;
         }
 
-        public void Delete(long id)
+        public void Delete(int id)
         {
            
                 T element = dataset.Find(id);
                 dataset.Remove(element);
+               _context.SaveChanges();
             
         }
 
-        public bool Exists(long? id)
+        public bool Exists(int? id)
         {
             throw new NotImplementedException();
         }
@@ -55,7 +56,7 @@ namespace ContractApi.Repository.Generic
             return dataset.ToList();
         }
 
-        public T FindById(long id)
+        public T FindById(int id)
         {
             return dataset.SingleOrDefault(p => p.Id.Equals(id));
         }
@@ -63,9 +64,12 @@ namespace ContractApi.Repository.Generic
         public T Update(T item)
         {
 
-            T element = dataset.Find(item);
 
-            dataset.Update(element);
+           
+            
+            dataset.Update(item);
+
+            _context.SaveChanges();
 
             return item;
         }

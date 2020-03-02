@@ -9,12 +9,12 @@ namespace ContractApi.Repository.Generic
    public  interface IRepository<T> where T :BaseEntity
     {
         T Create(T item);
-        T FindById(long id);
+        T FindById(int id);
         List<T> FindAll();
         T Update(T item);
-        void Delete(long id);
+        void Delete(int id);
 
-        bool Exists(long? id);
+        bool Exists(int? id);
 
     }
 }
