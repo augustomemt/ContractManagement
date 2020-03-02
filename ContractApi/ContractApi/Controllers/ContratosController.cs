@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ContractApi.Business.Implementations;
 using ContractApi.Data.VO;
 using Microsoft.AspNetCore.Mvc;
+using Tapioca.HATEOAS;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,6 +25,7 @@ namespace ContractApi.Controllers
         }
         // GET: api/<controller>
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult  Get()
         {
             return Ok(_contratoBusiness.FindAll());
@@ -31,6 +33,7 @@ namespace ContractApi.Controllers
 
         // GET api/<controller>/5
         [HttpGet("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
         {
             var contract = _contratoBusiness.FindById(id);
@@ -40,6 +43,7 @@ namespace ContractApi.Controllers
 
         // POST api/<controller>
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody]ContratosVO contrado)
         {
             if (contrado == null) return BadRequest();
@@ -50,6 +54,7 @@ namespace ContractApi.Controllers
         }
         // PUT api/<controller>/5
         [HttpPut("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody]ContratosVO contrado)
         {
 
@@ -61,6 +66,7 @@ namespace ContractApi.Controllers
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
+
         public IActionResult Delete(int id)
         {
             _contratoBusiness.Delete(id);

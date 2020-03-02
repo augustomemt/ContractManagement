@@ -2,10 +2,11 @@
 using ContractApi.Models.Base;
 using System;
 using System.Collections.Generic;
+using Tapioca.HATEOAS;
 
 namespace ContractApi.Data.VO
 {
-    public partial class ContratosVO 
+    public partial class ContratosVO : ISupportsHyperMedia
     {
         public int? Id { get; set; }
         public string NomeContrato { get; set; }
@@ -24,5 +25,6 @@ namespace ContractApi.Data.VO
         public DateTime DataFim { get; set; }
         public DateTime DataInicio { get; set; }
         public string Status { get; set; }
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }

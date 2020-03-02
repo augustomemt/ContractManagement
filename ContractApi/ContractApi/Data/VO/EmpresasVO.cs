@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tapioca.HATEOAS;
 
 namespace ContractApi.Data.VO
 {
-    public  class  EmpresasVO
+    public  class  EmpresasVO : ISupportsHyperMedia
     {
         public int? Id { get; set; }
         public string  Nome  { get; set; }
@@ -22,7 +23,6 @@ namespace ContractApi.Data.VO
 
         public DateTime CriadoEm { get; set; }
         public DateTime ModificadoEm { get; set; }
-
-
+        public List<HyperMediaLink> Links { get ; set ; }
     }
 }

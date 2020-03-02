@@ -9,3 +9,14 @@ C:\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractAp
 C:\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.AssemblyInfo.cs
 C:\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.dll
 C:\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.pdb
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\bin\Debug\netcoreapp2.0\ContractApi.deps.json
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\bin\Debug\netcoreapp2.0\ContractApi.runtimeconfig.json
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\bin\Debug\netcoreapp2.0\ContractApi.runtimeconfig.dev.json
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\bin\Debug\netcoreapp2.0\ContractApi.dll
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\bin\Debug\netcoreapp2.0\ContractApi.pdb
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.csprojAssemblyReference.cache
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.csproj.CoreCompileInputs.cache
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.AssemblyInfoInputs.cache
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.AssemblyInfo.cs
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.dll
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.pdb
