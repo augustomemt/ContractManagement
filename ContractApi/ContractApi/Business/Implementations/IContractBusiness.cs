@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ContractApi.Business.Implementations
 {
-    public  interface IContratoBusiness
+    public  interface IContractBusiness
     {
         ContractsVO Create(ContractsVO contratos);
         ContractsVO FindById(int id);
