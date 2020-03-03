@@ -1,18 +1,16 @@
 ﻿using ContractApi.Data.Converter;
 using ContractApi.Data.VO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContractApi.Data.Converters
 {
-    public class ContratosConverter : IParse<ContratosVO, Contratos>, IParse<Contratos, ContratosVO>
+    public class ContractsConverter : IParse<ContractsVO, Contracts>, IParse<Contracts, ContractsVO>
     {
-        public ContratosVO Parse(Contratos origin)
+        public ContractsVO Parse(Contracts origin)
         {
-            if (origin == null) return new ContratosVO();
-            return new ContratosVO
+            if (origin == null) return new ContractsVO();
+            return new ContractsVO
             {
                 Id = origin.Id,
                 NomeContrato = origin.NomeContrato,
@@ -36,10 +34,10 @@ namespace ContractApi.Data.Converters
             };
         }
 
-        public Contratos Parse(ContratosVO origin)
+        public Contracts Parse(ContractsVO origin)
         {
-            if (origin == null) return new Contratos();
-            return new Contratos
+            if (origin == null) return new Contracts();
+            return new Contracts
             {
                 Id = origin.Id,
                 NomeContrato = origin.NomeContrato,
@@ -63,15 +61,15 @@ namespace ContractApi.Data.Converters
             };
         }
 
-        public List<ContratosVO> ParseList(List<Contratos> origin)
+        public List<ContractsVO> ParseList(List<Contracts> origin)
         {
-            if (origin == null) return new List<ContratosVO>();
+            if (origin == null) return new List<ContractsVO>();
             return origin.Select(item => Parse(item)).ToList();
         }
 
-        public List<Contratos> ParseList(List<ContratosVO> origin)
+        public List<Contracts> ParseList(List<ContractsVO> origin)
         {
-            if (origin == null) return new List<Contratos>();
+            if (origin == null) return new List<Contracts>();
             return origin.Select(item => Parse(item)).ToList();
         }
     }

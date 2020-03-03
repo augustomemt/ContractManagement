@@ -1,14 +1,12 @@
-﻿using ContractApi.Models.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Tapioca.HATEOAS;
 
-namespace ContractApi.Models
+namespace ContractApi.Data.VO
 {
-    public  class  Empresas : BaseEntity
+    public  class  EmpresasVO : ISupportsHyperMedia
     {
-       
+        public int? Id { get; set; }
         public string  Nome  { get; set; }
         public string CNPJ { get; set; }
 
@@ -22,7 +20,6 @@ namespace ContractApi.Models
 
         public DateTime CriadoEm { get; set; }
         public DateTime ModificadoEm { get; set; }
-
-
+        public List<HyperMediaLink> Links { get ; set ; }
     }
 }

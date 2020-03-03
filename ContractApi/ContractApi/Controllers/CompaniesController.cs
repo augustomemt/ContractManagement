@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ContractApi.Business.Implementations;
+﻿using ContractApi.Business.Implementations;
 using ContractApi.Data.VO;
-using ContractApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Tapioca.HATEOAS;
 
@@ -14,14 +9,14 @@ namespace ContractApi.Controllers
 {
     [ApiVersion("1.0")]
     [Route("api/[controller]/v{version:apiVersion}")]
-    public class EmpresasController : Controller
+    public class CompaniesController : Controller
     {
 
         //Injeção de dependencia 
 
         private IEmpresaBusiness _empresaBusiness;
 
-        public EmpresasController( IEmpresaBusiness empresa)
+        public CompaniesController( IEmpresaBusiness empresa)
         {
             _empresaBusiness = empresa;
         }

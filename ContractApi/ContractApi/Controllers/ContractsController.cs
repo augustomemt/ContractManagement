@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ContractApi.Business.Implementations;
+﻿using ContractApi.Business.Implementations;
 using ContractApi.Data.VO;
 using Microsoft.AspNetCore.Mvc;
 using Tapioca.HATEOAS;
@@ -11,15 +7,15 @@ using Tapioca.HATEOAS;
 
 namespace ContractApi.Controllers
 {
-  
+
     [ApiVersion("1.0")]
     [Route("api/[controller]/v{version:apiVersion}")]
-    public class ContratosController : Controller
+    public class ContractsController : Controller
     {
         //Injeção de dependencia 
         private IContratoBusiness _contratoBusiness;
 
-        public ContratosController(IContratoBusiness contrato)
+        public ContractsController(IContratoBusiness contrato)
         {
             _contratoBusiness = contrato;
         }
@@ -44,7 +40,7 @@ namespace ContractApi.Controllers
         // POST api/<controller>
         [HttpPost]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Post([FromBody]ContratosVO contrado)
+        public IActionResult Post([FromBody]ContractsVO contrado)
         {
             if (contrado == null) return BadRequest();
 
@@ -55,7 +51,7 @@ namespace ContractApi.Controllers
         // PUT api/<controller>/5
         [HttpPut("{id}")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Put([FromBody]ContratosVO contrado)
+        public IActionResult Put([FromBody]ContractsVO contrado)
         {
 
 

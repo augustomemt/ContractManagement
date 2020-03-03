@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ContractApi.Data.Converters;
 using ContractApi.Data.VO;
 using ContractApi.Models;
@@ -12,16 +10,16 @@ namespace ContractApi.Business.Implementations
     public class EmpresaBusiness : IEmpresaBusiness
     {
 
-        private IRepository<Empresas> _repository;
+        private IRepository<Companies> _repository;
 
-        private readonly EmpresasConverter _converter;
+        private readonly CompaniesConverter _converter;
 
 
-        public EmpresaBusiness(IRepository<Empresas> repository)
+        public EmpresaBusiness(IRepository<Companies> repository)
         {
             _repository = repository;
 
-            _converter = new EmpresasConverter();
+            _converter = new CompaniesConverter();
 
         }
 

@@ -1,18 +1,15 @@
 ﻿using ContractApi.Data.VO;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Tapioca.HATEOAS;
 
 namespace ContractApi.HyperMedia
 {
-    public class ContratoEnricher : ObjectContentResponseEnricher<ContratosVO>
+    public class EmpresaEnricher : ObjectContentResponseEnricher<EmpresasVO>
     {
-        protected override Task EnrichModel(ContratosVO content, IUrlHelper urlHelper)
+        protected override Task EnrichModel(EmpresasVO content, IUrlHelper urlHelper)
         {
-            var path = "api/Contratos/v1.0";
+            var path = "api/Empresas/v1.0";
             var url = new { controller = path, id = content.Id };
 
             content.Links.Add(new HyperMediaLink()
@@ -48,7 +45,7 @@ namespace ContractApi.HyperMedia
                 Action = HttpActionVerb.DELETE,
                 Href = urlHelper.Link("Defaut", url),
                 Rel = RelationType.self,
-                Type = "int"
+                Type ="int"
 
             });
 

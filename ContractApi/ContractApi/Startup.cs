@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ContractApi.Business.Implementations;
+﻿using ContractApi.Business.Implementations;
 using ContractApi.HyperMedia;
 using ContractApi.Models.Context;
 using ContractApi.Repository.Generic;
@@ -12,8 +8,6 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Tapioca.HATEOAS;
 
 namespace ContractApi
@@ -39,7 +33,7 @@ namespace ContractApi
             
             //hATEOAS
             var filterOptions = new HyperMediaFilterOptions();
-            filterOptions.ObjectContentResponseEnricherList.Add(new ContratoEnricher());
+            filterOptions.ObjectContentResponseEnricherList.Add(new ContractEnricher());
             filterOptions.ObjectContentResponseEnricherList.Add(new EmpresaEnricher());
 
             services.AddSingleton(filterOptions);

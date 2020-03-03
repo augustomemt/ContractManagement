@@ -1,13 +1,9 @@
 ﻿using ContractApi.Data.VO;
-using ContractApi.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContractApi.Business.Implementations
 {
-     public interface IEmpresaBusiness
+    public interface IEmpresaBusiness
     {
         EmpresasVO Create(EmpresasVO empresas);
         EmpresasVO FindById(int id);

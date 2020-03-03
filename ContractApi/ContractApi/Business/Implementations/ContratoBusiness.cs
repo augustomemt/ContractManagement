@@ -3,26 +3,24 @@ using ContractApi.Data.VO;
 using ContractApi.Repository.Generic;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContractApi.Business.Implementations
 {
     public class ContratoBusiness : IContratoBusiness
     {
         //Injeção de dependencia
-        private IRepository<Contratos> _repository;
+        private IRepository<Contracts> _repository;
 
-        private readonly ContratosConverter _converter;
-        public ContratoBusiness(IRepository<Contratos> repository)
+        private readonly ContractsConverter _converter;
+        public ContratoBusiness(IRepository<Contracts> repository)
         {
 
             _repository = repository;
-            _converter = new ContratosConverter();
+            _converter = new ContractsConverter();
         }
 
 
-        public ContratosVO Create(ContratosVO contratos)
+        public ContractsVO Create(ContractsVO contratos)
         {
 
 
@@ -53,7 +51,7 @@ namespace ContractApi.Business.Implementations
             throw new NotImplementedException();
         }
 
-        public List<ContratosVO> FindAll()
+        public List<ContractsVO> FindAll()
         {
            
                 return _converter.ParseList( _repository.FindAll());           
@@ -62,12 +60,12 @@ namespace ContractApi.Business.Implementations
 
         }
 
-        public ContratosVO FindById(int id)
+        public ContractsVO FindById(int id)
         {
              return _converter.Parse(_repository.FindById(id));
         }
 
-        public ContratosVO Update(ContratosVO contrato)
+        public ContractsVO Update(ContractsVO contrato)
         {
             var contratoEntity = _converter.Parse(contrato);
             contratoEntity = _repository.Update(_converter.Parse(contrato));

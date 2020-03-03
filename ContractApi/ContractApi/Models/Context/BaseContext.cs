@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContractApi.Models.Context
 {
@@ -18,8 +14,8 @@ namespace ContractApi.Models.Context
 
         }
 
-        public DbSet<Contratos> Contratos { get; set; }
-        public DbSet<Empresas> Empresas { get; set; }
+        public DbSet<Contracts> Contratos { get; set; }
+        public DbSet<Companies> Empresas { get; set; }
 
     }
 

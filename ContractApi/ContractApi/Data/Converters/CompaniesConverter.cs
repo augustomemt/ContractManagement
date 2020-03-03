@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ContractApi.Data.Converters
 {
-    public class EmpresasConverter : IParse<EmpresasVO, Empresas>, IParse<Empresas, EmpresasVO>
+    public class CompaniesConverter : IParse<EmpresasVO, Companies>, IParse<Companies, EmpresasVO>
     {
-        public Empresas Parse(EmpresasVO origin)
+        public Companies Parse(EmpresasVO origin)
         {
-            if (origin == null) return new Empresas();
+            if (origin == null) return new Companies();
 
-            return new Empresas
+            return new Companies
             {
                 Id = origin.Id,
                 CEP = origin.CEP,
@@ -31,7 +31,7 @@ namespace ContractApi.Data.Converters
             };
         }
 
-        public EmpresasVO Parse(Empresas origin)
+        public EmpresasVO Parse(Companies origin)
         {
             if (origin == null) return new EmpresasVO();
 
@@ -52,13 +52,13 @@ namespace ContractApi.Data.Converters
             };
         }
 
-        public List<Empresas> ParseList(List<EmpresasVO> origin)
+        public List<Companies> ParseList(List<EmpresasVO> origin)
         {
-            if (origin == null) return new List<Empresas>();
+            if (origin == null) return new List<Companies>();
             return origin.Select(item => Parse(item)).ToList();
         }
 
-        public List<EmpresasVO> ParseList(List<Empresas> origin)
+        public List<EmpresasVO> ParseList(List<Companies> origin)
         {
             if (origin == null) return new List<EmpresasVO>();
             return origin.Select(item => Parse(item)).ToList();
