@@ -20,3 +20,6 @@ C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netco
 C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.AssemblyInfo.cs
 C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.dll
 C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.pdb
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.RazorAssemblyInfo.cache
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.RazorAssemblyInfo.cs
+C:\ContractManagement\ContractManagement\ContractApi\ContractApi\obj\Debug\netcoreapp2.0\ContractApi.RazorTargetAssemblyInfo.cache

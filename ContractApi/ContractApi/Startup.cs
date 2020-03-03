@@ -8,6 +8,7 @@ using ContractApi.Models.Context;
 using ContractApi.Repository.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,14 +37,17 @@ namespace ContractApi
 
             services.AddDbContext<BaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Conexao")));
             
+            //hATEOAS
             var filterOptions = new HyperMediaFilterOptions();
             filterOptions.ObjectContentResponseEnricherList.Add(new ContratoEnricher());
             filterOptions.ObjectContentResponseEnricherList.Add(new EmpresaEnricher());
 
-            services.AddSingleton(filterOptions); 
+            services.AddSingleton(filterOptions);
+
+            //sWAGGER
 
 
-
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1.0", new Microsoft.OpenApi.Models.OpenApiInfo{ Title = "ContractAPI with ASP.NET Core 2.0" ,Version = "v1.0"}));
 
             //Adiciona serviços
             services.AddScoped<IEmpresaBusiness, EmpresaBusiness>();
@@ -58,6 +62,19 @@ namespace ContractApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+
+                c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "My API V1.0");
+            });
+
+            var option = new RewriteOptions();
+            option.AddRedirect("^$", "swagger");
+
+            app.UseRewriter(option);
 
             app.UseMvc(routes => {
 
