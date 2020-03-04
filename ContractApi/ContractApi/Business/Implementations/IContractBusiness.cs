@@ -8,6 +8,8 @@ namespace ContractApi.Business.Implementations
         ContractsVO Create(ContractsVO contratos);
         ContractsVO FindById(int id);
         List<ContractsVO> FindAll();
+        List<ContractsVO> FindByName(string name , string comprador);
+
         ContractsVO Update(ContractsVO item);
         void Delete(int id);
 

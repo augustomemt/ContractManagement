@@ -7,7 +7,7 @@ using ContractApi.Repository.Generic;
 
 namespace ContractApi.Business.Implementations
 {
-    public class EmpresaBusiness : IEmpresaBusiness
+    public class CompanyBusiness : ICompanyBusiness
     {
 
         private IRepository<Companies> _repository;
@@ -15,7 +15,7 @@ namespace ContractApi.Business.Implementations
         private readonly CompaniesConverter _converter;
 
 
-        public EmpresaBusiness(IRepository<Companies> repository)
+        public CompanyBusiness(IRepository<Companies> repository)
         {
             _repository = repository;
 

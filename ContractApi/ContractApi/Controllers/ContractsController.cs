@@ -13,9 +13,9 @@ namespace ContractApi.Controllers
     public class ContractsController : Controller
     {
         //Injeção de dependencia 
-        private IContratoBusiness _contratoBusiness;
+        private IContractBusiness _contratoBusiness;
 
-        public ContractsController(IContratoBusiness contrato)
+        public ContractsController(IContractBusiness contrato)
         {
             _contratoBusiness = contrato;
         }
@@ -27,6 +27,13 @@ namespace ContractApi.Controllers
             return Ok(_contratoBusiness.FindAll());
         }
 
+
+        [HttpGet("find-by-name")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult GetByName([FromQuery] string name , [FromQuery] string comprador)
+        {
+            return Ok(_contratoBusiness.FindByName(name,comprador));
+        }
         // GET api/<controller>/5
         [HttpGet("{id}")]
         [TypeFilter(typeof(HyperMediaFilter))]

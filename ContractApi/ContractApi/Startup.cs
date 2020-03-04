@@ -2,6 +2,7 @@
 using ContractApi.HyperMedia;
 using ContractApi.Models.Context;
 using ContractApi.Repository.Generic;
+using ContractApi.Repository.Implamentatitons;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Rewrite;
@@ -44,8 +45,10 @@ namespace ContractApi
             services.AddSwaggerGen(c => c.SwaggerDoc("v1.0", new Microsoft.OpenApi.Models.OpenApiInfo{ Title = "ContractAPI with ASP.NET Core 2.0" ,Version = "v1.0"}));
 
             //Adiciona serviços
-            services.AddScoped<IEmpresaBusiness, EmpresaBusiness>();
-            services.AddScoped<IContratoBusiness, ContratoBusiness>();
+            services.AddScoped<ICompanyBusiness, CompanyBusiness>();
+            services.AddScoped<IContractBusiness, ContratoBusiness>();
+
+            services.AddScoped<IContractRepository, ContractRepositoryImpl>();
             services.AddScoped(typeof(IRepository<>), (typeof(GenericRepository<>)));
         }
 

@@ -10,7 +10,7 @@ namespace ContractApi.Repository.Generic
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
 
-        private readonly BaseContext _context;
+        protected readonly BaseContext _context;
 
         private DbSet<T> dataset;
 

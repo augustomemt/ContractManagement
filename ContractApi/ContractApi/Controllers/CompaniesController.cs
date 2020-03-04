@@ -14,9 +14,9 @@ namespace ContractApi.Controllers
 
         //Injeção de dependencia 
 
-        private IEmpresaBusiness _empresaBusiness;
+        private ICompanyBusiness _empresaBusiness;
 
-        public CompaniesController( IEmpresaBusiness empresa)
+        public CompaniesController( ICompanyBusiness empresa)
         {
             _empresaBusiness = empresa;
         }

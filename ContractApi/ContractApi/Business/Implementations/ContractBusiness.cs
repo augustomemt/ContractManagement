@@ -6,13 +6,15 @@ using System.Collections.Generic;
 
 namespace ContractApi.Business.Implementations
 {
-    public class ContratoBusiness : IContratoBusiness
+    public class ContratoBusiness : IContractBusiness
     {
         //Injeção de dependencia
-        private IRepository<Contracts> _repository;
+        private IContractRepository _repository;
+
+
 
         private readonly ContractsConverter _converter;
-        public ContratoBusiness(IRepository<Contracts> repository)
+        public ContratoBusiness(IContractRepository repository)
         {
 
             _repository = repository;
@@ -59,6 +61,16 @@ namespace ContractApi.Business.Implementations
               
 
         }
+
+        public List<ContractsVO> FindByName(string name, string comprador)
+        {
+
+            return _converter.ParseList(_repository.FindByName(name , comprador));
+
+
+
+        }
+
 
         public ContractsVO FindById(int id)
         {
