@@ -1,0 +1,44 @@
+﻿
+@{ 
+     @ViewBag.ListContract;
+
+}
+
+
+<table class="table-bordered">
+
+    <thead>
+
+            <tr>
+                    <td>ID</td>
+                    <td>Nome Contrato</td>
+                    <td>Data Inicio</td>
+                    <td>Tipo</td>
+
+            </tr>
+
+
+    </thead>
+
+    <tbody>
+
+            @foreach(var item in ViewBag.ListContract)
+            {
+                <tr>
+                    <td>@item.Id.ToString()</td>                   
+                    <td>@item.NomeContrato</td>
+                    <td>@item.DataInicio.ToString()</td>
+                    <td>@item.Tipo.ToString()</td>
+                    
+
+                </tr>
+                
+
+            }
+
+
+
+    </tbody>
+
+
+</table>

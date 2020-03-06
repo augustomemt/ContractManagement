@@ -21,15 +21,15 @@ namespace ContractApi.Repository.Implamentatitons
         {
             if( !string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(comprador))
             {
-                return _context.Contratos.Where(p => p.NomeContrato.Equals(name) && p.Status.Equals(comprador)).ToList();
+                return _context.Contratos.Where(p => p.NomeContrato.Contains(name) && p.Status.Contains(comprador)).ToList();
             }
             else if(!string.IsNullOrEmpty(name) && string.IsNullOrEmpty(comprador))
             {
-                return _context.Contratos.Where(p => p.NomeContrato.Equals(name)).ToList();
+                return _context.Contratos.Where(p => p.NomeContrato.Contains(name)).ToList();
             }
             else if (string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(comprador))
             {
-                return _context.Contratos.Where(p => p.NomeContrato.Equals(name)).ToList();
+                return _context.Contratos.Where(p => p.NomeContrato.Contains(name)).ToList();
             }
             else
             {
